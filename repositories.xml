@@ -1,0 +1,12 @@
+<repositories encoding="unicode" version="1.1">
+  <repo priority="50" quality="experimental">
+    <name>compute</name>
+    <description>Ebuilds to install compilers, libraries and programs for computation</description>
+    <homepage>https://github.com/justxi/compute</homepage>
+    <owner>
+      <email>gentoo@holzke.net</email>
+      <name>justXi</name>
+    </owner>
+    <source type="git">https://github.com/justxi/vulkan.git</source>
+  </repo>
+</repositories>
