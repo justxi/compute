@@ -3,6 +3,7 @@
 
 EAPI=7
 
+DESCRIPTION="Experimental Intel CPU Runtime for OpenCL™ Applications with SYCL support"
 HOMEPAGE="https://github.com/intel/llvm/"
 SRC_URI="https://github.com/intel/llvm/releases/download/2019-08/oclcpuexp-2019.8.7.0.0725_rel.tar.gz"
 
@@ -11,6 +12,14 @@ SLOT="0"
 LICENSE=""
 
 S=${WORKDIR}
+
+pkg_nofetch() {
+        einfo "Please download the package"
+        einfo
+        einfo "    ${SRC_URI}"
+        einfo
+        einfo "and place into your distfiles directory."
+}
 
 src_install() {
         insinto /opt/intel/oclcpuexp/x64
