@@ -22,6 +22,10 @@ pkg_nofetch() {
 }
 
 src_install() {
+	insinto /opt/intel/oclcpuexp/
+	insopts -m 755
+	doins "${WORKDIR}"/clbltfnshared.rtl
+
         insinto /opt/intel/oclcpuexp/x64
         insopts -m 755
         doins "${WORKDIR}"/x64/*
