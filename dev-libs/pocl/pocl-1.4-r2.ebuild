@@ -31,6 +31,10 @@ DEPEND="${RDEPEND}
 	dev-libs/ocl-icd
 	virtual/pkgconfig"
 
+PATCHES=(
+	"${FILESDIR}/pocl-1.4-add_device_gfx803.patch"
+)
+
 src_configure() {
 	local mycmakeargs=(
 		-DENABLE_CUDA=$(usex cuda)
@@ -43,6 +47,7 @@ src_configure() {
 			-DWITH_HSA_RUNTIME_DIR=/usr/
 			-DWITH_HSA_RUNTIME_INCLUDE_DIR=/usr/include/hsa
 			-DENABLE_HSAIL=OFF
+			-DEXTRA_OCL_TARGETS=amdgcn
 		)
 	fi
 
