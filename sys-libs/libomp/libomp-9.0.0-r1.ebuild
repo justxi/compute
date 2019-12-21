@@ -87,7 +87,7 @@ multilib_src_configure() {
 		export CC="${llvm_prefix}/bin/clang"
 		export CXX="${llvm_prefix}/bin/clang++"
 		mycmakeargs+=(
-			-DLIBOMPTARGET_NVPTX_COMPUTE_CAPABILITIES=35,60,70
+			-DLIBOMPTARGET_NVPTX_COMPUTE_CAPABILITIES=35,50,60,61,70,75
 		)
 	fi
 	use offload && mycmakeargs+=(
