@@ -37,8 +37,7 @@ src_prepare() {
 src_configure() {
 
 	# this must be fixed
-	CFLAGS=""
-	CXXFLAGS=""
+	# check: https://wiki.gentoo.org/wiki/Project:Quality_Assurance/As-needed (?)
 	LDFLAGS=""
 
 	local llvm_prefix=$(get_llvm_prefix -b)
