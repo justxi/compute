@@ -73,8 +73,6 @@ src_configure() {
 		-Wno-dev
         )
 
-#		-DSYCL_ENABLE_WERROR=ON
-
 #               -DLLVM_VERSION_SUFFIX=sylc
 
 #               -DLLVM_INSTALL_UTILS=ON
@@ -88,10 +86,10 @@ src_configure() {
         cmake-utils_src_configure
 }
 
-#src_instal() {
+src_instal() {
 	# options taken from "buildbot/compile.py"
-#	cmake-utils_src_install deploy-sycl-toolchain deploy-opencl-aot
-#}
+	cmake-utils_src_install deploy-sycl-toolchain deploy-opencl-aot
+}
 
 
 
