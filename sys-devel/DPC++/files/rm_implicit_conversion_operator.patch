@@ -1,0 +1,15 @@
+--- a/sycl/include/CL/sycl/multi_ptr.hpp	2020-05-17 14:58:03.423590910 +0200
++++ b/sycl/include/CL/sycl/multi_ptr.hpp	2020-05-17 14:57:09.664592264 +0200
+@@ -517,10 +517,11 @@
+   }
+ 
+   // Implicit conversion to multi_ptr<const void, Space>
+-  operator multi_ptr<const void, Space>() const {
++/*  operator multi_ptr<const void, Space>() const {
+     using ptr_t = typename detail::PtrValueType<const void, Space>::type *;
+     return multi_ptr<const void, Space>(reinterpret_cast<ptr_t>(m_Pointer));
+   }
++*/
+ 
+ private:
+   pointer_t m_Pointer;

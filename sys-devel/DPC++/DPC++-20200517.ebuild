@@ -12,7 +12,7 @@ KEYWORDS="**"
 
 LICENSE=""
 SLOT="0"
-IUSE="cuda"
+IUSE="cuda debug"
 
 # Intel´s SYCL need "cl_ext_intel.h"
 RDEPEND="dev-libs/ocl-icd
@@ -22,7 +22,9 @@ DEPEND="${RDEPEND}
 	dev-lang/python:2.7
 	dev-util/spirv-tools"
 
-CMAKE_BUILD_TYPE=Release
+PATCHES=(
+	${FILESDIR}/rm_implicit_conversion_operator.patch
+)
 
 S=${WORKDIR}/llvm-${PV}
 
@@ -38,6 +40,12 @@ src_configure() {
 	if use cuda; then
 		llvm_targets_to_build+=";NVPTX"
 		sycl_build_pi_cuda="ON"
+	fi
+
+	if use debug; then
+		CMAKE_BUILD_TYPE=Debug
+	else
+		CMAKE_BUILD_TYPE=Release
 	fi
 
         local mycmakeargs=(
@@ -75,7 +83,7 @@ src_configure() {
 #               -DLLVM_ENABLE_EH=ON
 #               -DLLVM_ENABLE_RTTI=ON
 
-#        use debug || local -x CPPFLAGS="${CPPFLAGS} -DNDEBUG"
+        use debug || local -x CPPFLAGS="${CPPFLAGS} -DNDEBUG"
 
         cmake-utils_src_configure
 }
