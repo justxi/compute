@@ -30,6 +30,8 @@ CMAKE_USE_DIR=${S}/llvm
 
 src_configure() {
 
+	# options taken from "buildbot/configure.py"
+
 	llvm_targets_to_build="X86"
 	sycl_build_pi_cuda="OFF"
 
@@ -51,7 +53,7 @@ src_configure() {
 		-DSYCL_BUILD_PI_CUDA=${sycl_build_pi_cuda}
 		-DLLVM_BUILD_TOOLS=ON
 		-DSYCL_ENABLE_WERROR=ON
-                -DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/lib/llvm/intel-sycl"
+                -DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/lib/llvm/DPC++"
 		-DSYCL_INCLUDE_TESTS=ON
                 -DLLVM_ENABLE_DOXYGEN=OFF
                 -DLLVM_ENABLE_SPHINX=OFF
@@ -59,9 +61,11 @@ src_configure() {
 		-DSYCL_ENABLE_XPTI_TRACING=ON
 		-DOpenCL_INCLUDE_DIR=/usr/include/
 		-DOpenCL_LIBRARY=/usr/lib64/libOpenCL.so.1.0.0
-		-DCMAKE_INSTALL_MANDIR="${EPREFIX}/usr/lib/llvm/intel-sycl/share/man"
+		-DCMAKE_INSTALL_MANDIR="${EPREFIX}/usr/lib/llvm/DPC++/share/man"
 		-Wno-dev
         )
+
+#		-DSYCL_ENABLE_WERROR=ON
 
 #               -DLLVM_VERSION_SUFFIX=sylc
 
@@ -76,9 +80,10 @@ src_configure() {
         cmake-utils_src_configure
 }
 
-src_compile() {
-	cmake-utils_src_compile deploy-sycl-toolchain deploy-opencl-aot
-}
+#src_instal() {
+	# options taken from "buildbot/compile.py"
+#	cmake-utils_src_install deploy-sycl-toolchain deploy-opencl-aot
+#}
 
 
 
