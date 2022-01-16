@@ -7,6 +7,6 @@
       <email>gentoo@holzke.net</email>
       <name>justXi</name>
     </owner>
-    <source type="git">https://github.com/justxi/vulkan.git</source>
+    <source type="git">https://github.com/justxi/compute.git</source>
   </repo>
 </repositories>
