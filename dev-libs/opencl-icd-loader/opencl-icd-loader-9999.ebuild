@@ -1,6 +1,6 @@
 EAPI=7
 
-inherit cmake-utils git-r3
+inherit cmake git-r3
 
 DESCRIPTION="Khronos OpenCL ICD Loader"
 HOMEPAGE="https://github.com/KhronosGroup/OpenCL-ICD-Loader"
@@ -34,7 +34,7 @@ src_unpack() {
 
 src_install() {
         default
-	cmake-utils_src_install
+	cmake_src_install
 
         OCL_DIR="/usr/$(get_libdir)/OpenCL/vendors/opencl-icd-loader"
         dodir ${OCL_DIR}/{,include}
