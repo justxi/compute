@@ -1,5 +1,5 @@
-EAPI="6"
-inherit cmake-utils cmake-multilib
+EAPI="7"
+inherit cmake cmake-multilib
 
 DESCRIPTION="Portable Computing Language"
 HOMEPAGE="http://portablecl.org"
