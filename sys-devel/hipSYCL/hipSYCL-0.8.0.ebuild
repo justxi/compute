@@ -1,7 +1,7 @@
 #
 
 EAPI=7
-inherit cmake-utils flag-o-matic
+inherit cmake flag-o-matic
 
 DESCRIPTION="Implementation of SYCL 1.2.1 over AMD HIP/NVIDIA CUDA"
 HOMEPAGE="https://github.com/illuhad/hipSYCL"
@@ -60,7 +60,7 @@ src_prepare() {
 	sed -e "s:os.path.join(config.hipsycl_installation_path,\"lib/\"):os.path.join(config.hipsycl_installation_path,\"lib64/\"):" -i bin/syclcc-clang || die
 	sed -e "s:DESTINATION lib/cmake:DESTINATION lib64/cmake/hipSYCL:" -i CMakeLists.txt || die
 	eapply_user
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
@@ -105,5 +105,5 @@ src_configure() {
 		)
 	fi
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }

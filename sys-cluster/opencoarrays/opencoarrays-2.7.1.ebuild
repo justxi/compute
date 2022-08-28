@@ -1,9 +1,10 @@
 # Copyright
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=8
 
-inherit cmake-utils fortran-2
+inherit cmake fortran-2
+
 DESCRIPTION="Implementation of coarrays for gfortran"
 HOMEPAGE="http://www.opencoarrays.org/"
 SRC_URI="https://github.com/sourceryinstitute/${PN}/releases/download/${PV}/${P}.tar.gz"
