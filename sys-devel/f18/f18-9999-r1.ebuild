@@ -2,7 +2,7 @@
 
 EAPI=7
 
-inherit cmake-utils llvm
+inherit cmake llvm
 
 DESCRIPTION="F18 Fortran Compiler"
 HOMEPAGE="https://github.com/flang-compiler/f18"
@@ -31,7 +31,7 @@ src_prepare() {
 	sed -e "s:DESTINATION lib:DESTINATION lib64:" -i ${S}/lib/parser/CMakeLists.txt
 	sed -e "s:DESTINATION lib:DESTINATION lib64:" -i ${S}/lib/decimal/CMakeLists.txt
 
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
@@ -53,7 +53,7 @@ src_configure() {
 		CMAKE_BUILD_TYPE=Release
 	fi
 
-        cmake-utils_src_configure
+        cmake_src_configure
 }
 
 src_compile() {
