@@ -2,7 +2,7 @@
 
 EAPI=7
 
-inherit cmake-utils
+inherit cmake
 
 DESCRIPTION="Intel SYCL compiler"
 HOMEPAGE="https://github.com/intel/llvm"
@@ -56,5 +56,5 @@ src_configure() {
 
 #        use debug || local -x CPPFLAGS="${CPPFLAGS} -DNDEBUG"
 
-        cmake-utils_src_configure
+        cmake_src_configure
 }
