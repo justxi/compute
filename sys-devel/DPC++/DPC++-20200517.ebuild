@@ -2,7 +2,7 @@
 
 EAPI=7
 
-inherit cmake-utils
+inherit cmake
 
 DESCRIPTION="Intel DPC++ compiler"
 HOMEPAGE="https://github.com/intel/llvm"
@@ -83,12 +83,12 @@ src_configure() {
 
         use debug || local -x CPPFLAGS="${CPPFLAGS} -DNDEBUG"
 
-        cmake-utils_src_configure
+        cmake_src_configure
 }
 
 src_instal() {
 	# options taken from "buildbot/compile.py"
-	cmake-utils_src_install deploy-sycl-toolchain deploy-opencl-aot
+	cmake_src_install deploy-sycl-toolchain deploy-opencl-aot
 }
 
 
